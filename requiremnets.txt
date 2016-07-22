@@ -1,0 +1,13 @@
+Flask
+Tornado
+SQLAlchemy
+Nose
+PyRedis
+Celery
+
+## Extentions ##
+Flask-Login
+
+## Server ##
+Gunicorn
+Supervisor
