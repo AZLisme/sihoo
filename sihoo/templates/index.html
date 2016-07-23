@@ -1,8 +1,65 @@
 <html>
-    <head>
+<head>
+    <title>撕乎 - 首页</title>
+    <style>
 
-    </head>
-    <body>
-        <h1>Hello World</h1>
-    </body>
+        body {
+            background: lightgray;
+        }
+
+        div.body-container {
+            max-width: 867px;
+            margin: auto;
+            font-family: "Microsoft YaHei UI Light";
+            padding: 32px;
+            background: white;
+            border: solid;
+            border-width: 2px;
+            border-color: gray;:;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        div.img-box {
+            margin: auto;
+            width: inherit;
+            text-align: center;
+        }
+
+        div.img-box img {
+            width: 60%;
+        }
+
+        div.change-log {
+            padding-left: 32px;
+            padding-right:32px;
+        }
+
+        div.change-log .title {
+            font-family: "Consolas";
+            font-size: x-large;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="body-container">
+    <h1>欢迎来到撕乎!</h1>
+    <p>本站还在建设中....</p>
+    <div class="change-log">
+        <p class="title">V 0.0.1</p>
+        <p>构建项目框架</p>
+        <p>打通配置、运行流程</p>
+    </div>
+    <div class="img-box">
+        <img src="{{ url_for('static', filename='img/site_under_construction.jpg') }}" alt="">
+    </div>
+</div>
+</body>
 </html>

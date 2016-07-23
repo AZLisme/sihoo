@@ -6,9 +6,11 @@ This module tests if time utlis works properly
 @email:  helloazl@icloud.com
 """
 
-from datetime import datetime
 import time
+from datetime import datetime
+
 import pytz
+
 from sihoo.utils.time import timestamp, set_default_timezone, datetime_from_timestamp
 
 

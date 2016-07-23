@@ -5,9 +5,11 @@ Nose
 redis
 Celery
 pytz
+psycopg2
 
 ## Extentions ##
 Flask-Login
+Flask-SQLAlchemy
 
 ## Server ##
 Gunicorn

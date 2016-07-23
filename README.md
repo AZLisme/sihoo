@@ -1,5 +1,7 @@
 # Sihoo
 
+*V 0.0.1*
+
 ## What's Sihoo
 
 ## Requirements
@@ -41,8 +43,12 @@ is 0, try turn off the option by:
 **make sure it's safe before you do this.**
 
 
-
-
 ## Deployment
 
-Sihoo will coming soon.
+Sihoo is under construction currently, if you wanna check out the lastest progress, you can run it with:
+
+    python manage.py start
+
+Need help? please check:
+
+    python manage.py --help
