@@ -2,12 +2,12 @@ Flask
 Tornado
 SQLAlchemy
 Nose
-PyRedis
+redis
 Celery
+pytz
 
 ## Extentions ##
 Flask-Login
 
 ## Server ##
 Gunicorn
-Supervisor
