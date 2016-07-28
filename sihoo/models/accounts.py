@@ -22,10 +22,14 @@ class User(db.Model):
     portrait = Column(String)
     bio = Column(Text)
 
+    @classmethod
+    def create(cls, name, password):
+        cls(name=name, password=password).save()
+
 
 # class Role(db.Model):
 #     pass
-#
-#
+
+
 # class EmailVerifyRecord(db.Model):
 #     pass

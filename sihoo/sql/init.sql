@@ -53,7 +53,7 @@ CREATE TABLE vote (
   uid BIGINT REFERENCES users(id) ON DELETE CASCADE,
   sid BIGINT REFERENCES si(id) ON DELETE CASCADE,
   ts TIMESTAMP,
-  support SMALLINT
+  support BOOL
 );
 
 CREATE TABLE vote_total (

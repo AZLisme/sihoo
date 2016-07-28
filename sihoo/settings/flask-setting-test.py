@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Flask App 相关默认配置文件
+Flask App 相关默认配置文件(测试用)
 
 @author: AZLisme
 @email:  helloazl@icloud.com
@@ -13,7 +13,7 @@ PORT = 8080
 STATIC_FOLDER = '../front'
 
 
-SQLALCHEMY_DATABASE_URI = "postgresql://sihoo:sihoo@localhost/sihoo"
+SQLALCHEMY_DATABASE_URI = "postgresql://sihoo_test:sihoo_test@localhost/sihoo_test"
 
 
 # Redis Settings
