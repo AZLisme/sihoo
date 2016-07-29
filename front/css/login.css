@@ -1,0 +1,29 @@
+div.login-form {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 64px;
+}
+
+
+div.login-form button {
+    width: 100%;
+    border: 2px;
+    background: lightgray;
+}
+
+div.login-form #InputUsername {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-bottom: -1px;
+}
+
+div.login-form #InputPassword {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+div.login-form #RepeatPassword {
+    border-radius: 0px;
+    margin-bottom: -1px;
+}
+

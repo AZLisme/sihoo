@@ -12,7 +12,7 @@
 + PostgreSQL
 + Celery
 + Redis
-+ VueJS
++ Bootstrap
 
 Python 2 is **not** supported.
 

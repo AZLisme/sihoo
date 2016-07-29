@@ -2,9 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% if g.title %}{{ g.title }}{% else %}撕乎{% endif %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body>
 
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><b>撕乎</b></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">广场 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">关注</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if False %}
+                        <li><a href="#">开撕</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                               aria-expanded="false">个人 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">资料</a></li>
+                                <li><a href="#">设置</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">登出</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="login">登陆</a>
+                        <li><a href="register">注册</a>
+                    {% endif %}
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    {% block main %}
+
+    {% endblock %}
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="front/libs/bootstrap.min.js"></script>
 </body>
 </html>

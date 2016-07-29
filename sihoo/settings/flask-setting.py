@@ -11,7 +11,7 @@ PORT = 8080
 
 # Flask Settings
 STATIC_FOLDER = '../front'
-
+STATIC_URL_PATH = 'static'
 
 SQLALCHEMY_DATABASE_URI = "postgresql://sihoo:sihoo@localhost/sihoo"
 
