@@ -1,16 +1,28 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    <link rel="stylesheet" href="front/css/login.css">
+    <link rel="stylesheet" href="assets/css/login.min.css">
     <div class="login-form">
-        <form action="register" method="post">
-            <div class="form-group-lg">
-                <input type="text" class="form-control" id="InputUsername" placeholder="Username">
-                <input type="password" class="form-control" id="RepeatPassword" placeholder="Password">
-                <input type="password" class="form-control" id="InputPassword" placeholder="Repeat">
-                <br>
-                <button type="submit" class="btn-lg btn-default">注册</button>
+        <form class="ui form">
+            <div class="field">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="用户名">
             </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="text" name="password" placeholder="密码">
+            </div>
+            <div class="field">
+                <label>Repeat</label>
+                <input type="text" name="repeat" placeholder="再次输入">
+            </div>
+            <div class="field">
+                <div class="ui checkbox">
+                    <input type="checkbox" tabindex="0" class="hidden">
+                    <label>我同意撕乎使用协议</label>
+                </div>
+            </div>
+            <button class="ui button" type="submit">注册</button>
         </form>
     </div>
 {% endblock %}

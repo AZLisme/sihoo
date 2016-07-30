@@ -10,11 +10,10 @@ HOST = "0.0.0.0"
 PORT = 8080
 
 # Flask Settings
-STATIC_FOLDER = '../front'
-STATIC_URL_PATH = 'static'
+SECRET_KEY = 'secret'
 
 SQLALCHEMY_DATABASE_URI = "postgresql://sihoo:sihoo@localhost/sihoo"
-
+# SQLALCHEMY_DATABASE_URI = "postgresql://sihoo_test:sihoo_test@localhost/sihoo_test"
 
 # Redis Settings
 REDIS_HOST = "localhost"

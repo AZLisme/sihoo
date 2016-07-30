@@ -1,36 +1,16 @@
-<html>
-<head>
-    <title>撕乎 - 首页</title>
+{% extends 'base.html' %}
+
+{% block main %}
     <style>
-
-        body {
-            background: lightgray;
-        }
-
-        div.body-container {
-            max-width: 867px;
-            margin: auto;
-            font-family: "Microsoft YaHei UI Light";
-            padding: 32px;
-            background: white;
-            border: solid;
-            border-width: 2px;
-            border-color: gray;:;
-        }
-
-        h1 {
+        div.container {
             text-align: center;
         }
 
-        p {
-            text-align: center;
+        div.container img {
+            width: 60%;
         }
     </style>
-</head>
-<body>
-<div class="body-container">
-    <h1>欢迎来到撕乎!</h1>
-    <p>本站还在建设中....</p>
-</div>
-</body>
-</html>
+    <div class="container">
+        <img src="assets/img/site_under_construction.jpg" alt="">
+    </div>
+{% endblock %}

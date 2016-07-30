@@ -9,7 +9,6 @@ Sihoo 包 init 模块
 """
 
 import flask
-import tornado
 
 
 def make_tornado_app():
@@ -31,7 +30,7 @@ def make_flask_app(config=None, test=False):
 
     如果是处在测试环境，则同样的流程，只是相关文件与变量替换为：flask-setting-test 与 SIHOO_TEST_SETTINGS
     """
-    app = flask.Flask('sihoo', static_folder='../front')
+    app = flask.Flask('sihoo', static_folder='../front/public', static_url_path='/assets')
     if test:
         app.testing = True
         app.config.from_pyfile('settings/flask-setting-test.py')

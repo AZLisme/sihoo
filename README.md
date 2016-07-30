@@ -7,12 +7,16 @@
 ## Requirements
 
 + Python 3.4+
++ [Flask](http://flask.pocoo.org/)
 + [Tornado](http://www.tornadoweb.org/en/stable/)
-+ Flask
-+ PostgreSQL
-+ Celery
-+ Redis
-+ Bootstrap
++ [PostgreSQL](https://www.postgresql.org/)
++ [Celery](http://www.celeryproject.org/)
++ [Redis](http://redis.io/)
+
+Frontend libraries:
+
++ [Semantic UI](http://semantic-ui.com/)
++ [Vuejs](https://vuejs.org/)
 
 Python 2 is **not** supported.
 
