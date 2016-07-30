@@ -44,4 +44,6 @@ def make_flask_app(config=None, test=False):
     db.init_app(app)
     from sihoo import modules
     modules.init_app(app)
+    from sihoo import ext
+    ext.configure(app)
     return app

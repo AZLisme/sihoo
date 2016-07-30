@@ -6,15 +6,10 @@ Flask App 相关默认配置文件(测试用)
 @email:  helloazl@icloud.com
 """
 
-HOST = "0.0.0.0"
-PORT = 8080
-
 # Flask Settings
 SECRET_KEY = 'secret'
 
-
 SQLALCHEMY_DATABASE_URI = "postgresql://sihoo_test:sihoo_test@localhost/sihoo_test"
-
 
 # Redis Settings
 REDIS_HOST = "localhost"

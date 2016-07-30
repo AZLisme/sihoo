@@ -6,9 +6,12 @@
 @email:  helloazl@icloud.com
 """
 
-from sihoo import make_flask_app
-import click
 import pprint
+
+import click
+
+from sihoo import make_flask_app
+from sihoo.models import db
 
 flask_app = make_flask_app()
 
@@ -29,14 +32,30 @@ def start(host, port, debug):
 
 
 @click.command()
-def showConfig():
+def show_config():
     """Display all the config parameters"""
+    sep = "==========================================="
+    print(sep)
+    print("Flask Configuration")
+    print("")
     pprint.pprint(flask_app.config)
+    print("")
+    sep = "==========================================="
+    print(sep)
+    print("Tornado Configuration")
+    print("Not yet.")
+
+
+@click.command()
+def create_db():
+    """Create database"""
+    with flask_app.app_context():
+        db.create_all()
 
 
 cli.add_command(start)
-cli.add_command(showConfig)
-
+cli.add_command(show_config)
+cli.add_command(create_db)
 
 if __name__ == "__main__":
     cli()

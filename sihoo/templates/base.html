@@ -22,8 +22,22 @@
                         <div class="ui button">搜索</div>
                     </div>
                 </div>
-                <a href="/login" class="item">登陆</a>
-                <a href="/register" class="item">注册</a>
+                {% if current_user.is_authenticated %}
+                    <div class="ui dropdown">
+                        <div class="text">{{ current_user.name }}</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="/" class="item">个人</a>
+                            <a href="/" class="item">消息</a>
+                            <a href="/" class="item">设置</a>
+                            <div class="divider"></div>
+                            <a href="/logout" class="item">登出</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <a href="/login" class="item">登陆</a>
+                    <a href="/register" class="item">注册</a>
+                {% endif %}
             </div>
         </div>
         {% block main %}

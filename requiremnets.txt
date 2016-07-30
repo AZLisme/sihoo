@@ -6,6 +6,7 @@ redis
 Celery
 pytz
 psycopg2
+hashlib
 
 ## Extentions ##
 Flask-Login
