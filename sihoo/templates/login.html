@@ -2,23 +2,67 @@
 
 {% block main %}
     <link rel="stylesheet" href="assets/css/login.min.css">
-    <div class="login-form">
-        <form class="ui form">
-            <div class="field">
+    <div class="login-form" v-cloak>
+        <form class="ui form" onsubmit=";return false;">
+            <div :class="['field', uner?'error':'']">
                 <label>Username</label>
-                <input type="text" name="username" placeholder="用户名">
+                <input type="text" name="username" placeholder="用户名" v-model="username">
             </div>
-            <div class="field">
+            <div :class="['field', pwer?'error':'']">
                 <label>Password</label>
-                <input type="password" name="password" placeholder="密码">
+                <input type="password" name="password" placeholder="密码" v-model="password">
             </div>
             <div class="field">
                 <div class="ui checkbox">
-                    <input type="checkbox" tabindex="0" class="hidden">
+                    <input type="checkbox" tabindex="0" v-model="remember">
                     <label>记住我</label>
                 </div>
             </div>
-            <button class="ui button" type="submit">登陆</button>
+            <button class="ui button" type="submit" @click="onLogin">登陆</button>
         </form>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var vm = new Vue({
+            el: '.container',
+            data: {
+                username: '',
+                password: '',
+                uner: false,
+                pwer: false,
+                remember: false,
+                onLogin: function () {
+                    $.post('/login', {
+                        username: vm.username,
+                        password: vm.password,
+                        remember: vm.remember
+                    }, function (data, status) {
+                        switch (data.result) {
+                            case 1:
+                                window.location.replace('/');
+                                return;
+                            case -2:
+                                vm.uner = true;
+                                return;
+                            case -3:
+                                vm.pwer = true;
+                                return;
+                            case -4:
+                                vm.uner = true;
+                                vm.pwer = true;
+                                return;
+                        }
+                    })
+                }
+            }
+        });
+        vm.$watch('username', function (val) {
+            vm.uner = false;
+        });
+        vm.$watch('password', function (val) {
+            vm.pwer = false;
+        })
+    </script>
 {% endblock %}

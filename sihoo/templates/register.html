@@ -3,26 +3,129 @@
 {% block main %}
     <link rel="stylesheet" href="assets/css/login.min.css">
     <div class="login-form">
-        <form class="ui form">
+        {% raw %}
+        <div v-bind:class="['ui', ufe?'':'hidden','error', 'message']">
+            <i class="close icon"></i>
+            <div class="header">您的用户名格式不正确</div>
+            <ul class="list">
+                <li>可用字符集[a-z][A-Z][0-9][_]</li>
+                <li>长度在3-24个字符之间</li>
+                <li>不可以数字开头</li>
+            </ul>
+        </div>
+        <div v-bind:class="['ui', pfe?'':'hidden','error', 'message']">
+            <i class="close icon"></i>
+            <div class="header">您的密码格式不正确</div>
+            <ul class="list">
+                <li>可用字符集可打印的ASCII字符集</li>
+                <li>长度在6-32个字符之间</li>
+            </ul>
+        </div>
+        <div v-bind:class="['ui', utk?'':'hidden','error', 'message']">
+            <i class="close icon"></i>
+            <div class="header">您的用户名已经被人占用</div>
+        </div>
+        <div v-bind:class="['ui', sve?'':'hidden','error', 'message']">
+            <i class="close icon"></i>
+            <div class="header">服务器发生了一个错误</div>
+        </div>
+        <form class="ui form" onsubmit=";return false;">
             <div class="field">
                 <label>Username</label>
-                <input type="text" name="username" placeholder="用户名">
+                <input id="username-input" type="text" name="username" placeholder="用户名"
+                       v-model="u">
             </div>
-            <div class="field">
+            <div v-bind:class="['field', pe ? 'error': '']">
                 <label>Password</label>
-                <input type="password" name="password" placeholder="密码">
+                <input id="password-input" type="password" placeholder="密码" v-model="p">
             </div>
-            <div class="field">
+            <div v-bind:class="['field', re ? 'error' : '']">
                 <label>Repeat</label>
-                <input type="password" name="repeat" placeholder="再次输入">
+                <input id="repeat-input" type="password" placeholder="再次输入" v-model="r">
             </div>
             <div class="field">
                 <div class="ui checkbox">
-                    <input type="checkbox" tabindex="0" class="hidden">
-                    <label>我同意撕乎使用协议</label>
+                    <input type="checkbox" tabindex="0" v-model="c">
+                    <label>我同意《撕乎使用协议》</label>
                 </div>
             </div>
-            <button class="ui button" type="submit">注册</button>
+            <button class="ui button" @click="cl" disabled="{{ b }}">注册</button>
         </form>
+        {% endraw %}
     </div>
+    <script src="assets/js/login.min.js"></script>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        // create a Vue instance, or, a "ViewModel"
+        // which links the View and the Model
+        var vm = new Vue({
+            el: '.container',
+            data: {
+                u: '',
+                p: '',
+                pe: false,
+                r: '',
+                re: false,
+                c: false,
+                b: true,
+                ufe: false,
+                pfe: false,
+                ntk: false,
+                sve: false,
+                cl: function () {
+                    $.post('/register',
+                            {
+                                username: vm.u,
+                                password: vm.p
+                            },
+                            function (data, status) {
+                                if (status > 400) {
+                                    vm.sve = true;
+                                    return;
+                                } else {
+                                    switch (data.result) {
+                                        case 1:
+                                            window.location.replace('/');
+                                            break;
+                                        case -1:
+                                            vm.sve = true;
+                                            break;
+                                        case -2:
+                                            vm.ufe = true;
+                                            break;
+                                        case -3:
+                                            vm.pfe = true;
+                                            break;
+                                        case -4:
+                                            vm.ntk = true;
+                                            break;
+                                    }
+                                    vm.p = '';
+                                    vm.r = '';
+                                }
+                            }
+                    );
+                }
+            },
+            computed: {
+                pne: function () {
+                    return vm.p !== vm.r;
+                }
+            }
+        });
+        vm.$watch('c', function (val) {
+            vm.b = !(vm.c && !vm.pne);
+        });
+        vm.$watch('pne', function (val) {
+            vm.pe = val;
+            vm.re = val;
+            vm.b = !(vm.c && !vm.pne);
+        });
+
+        $('.message .close').on('click', function () {
+            $(this).closest('.message').transition('fade');
+        });
+    </script>
 {% endblock %}

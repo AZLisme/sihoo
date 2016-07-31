@@ -1,6 +1,6 @@
 # Sihoo
 
-*V 0.0.1*
+*V 0.0.6*
 
 ## What's Sihoo
 

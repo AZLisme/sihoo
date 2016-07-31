@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 {% if current_user.is_authenticated %}
-                    <div class="ui dropdown">
+                    <div class="ui pointing dropdown link item">
                         <div class="text">{{ current_user.name }}</div>
                         <i class="dropdown icon"></i>
                         <div class="menu">
@@ -34,6 +34,7 @@
                             <a href="/logout" class="item">登出</a>
                         </div>
                     </div>
+
                 {% else %}
                     <a href="/login" class="item">登陆</a>
                     <a href="/register" class="item">注册</a>
@@ -45,9 +46,15 @@
         {% endblock %}
     </div>
 </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="assets/semantic-ui/semantic.min.js"></script>
+<script src="assets/vuejs/vue.js"></script>
+{% block scripts %}
+    <script>
+        $('.pointing.dropdown').dropdown({
+            action: 'select'
+        })
+    </script>
+{% endblock %}
 </body>
 </html>
