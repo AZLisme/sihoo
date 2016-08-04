@@ -106,6 +106,21 @@ def logout():
     return redirect('/')
 
 
+@blue_print.route('/me', endpoint='profile', methods=['GET', 'POST'])
+def profile():
+    return render_template('profile.html')
+
+
+@blue_print.route('/me/settings', endpoint='settings', methods=['GET', 'POST'])
+def settings():
+    return render_template('settings.html')
+
+
+@blue_print.route('/me/messages', endpoint='message', methods=['GET'])
+def message_dashboard():
+    return render_template('messages.html')
+
+
 ######################
 #
 #        API

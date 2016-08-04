@@ -5,7 +5,7 @@
     <title>{% if g.title %}{{ g.title }}{% else %}撕乎{% endif %}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href="assets/semantic-ui/semantic.min.css" rel="stylesheet">
+    <link href="/assets/semantic-ui/semantic.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -24,12 +24,13 @@
                 </div>
                 {% if current_user.is_authenticated %}
                     <div class="ui pointing dropdown link item">
+                        <img class="ui avatar image" src="/assets/img/kristy.png">
                         <div class="text">{{ current_user.name }}</div>
                         <i class="dropdown icon"></i>
                         <div class="menu">
-                            <a href="/" class="item">个人</a>
-                            <a href="/" class="item">消息</a>
-                            <a href="/" class="item">设置</a>
+                            <a href="/me" class="item">个人</a>
+                            <a href="/me/messages" class="item">消息</a>
+                            <a href="/me/settings" class="item">设置</a>
                             <div class="divider"></div>
                             <a href="/logout" class="item">登出</a>
                         </div>
@@ -47,14 +48,15 @@
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="assets/semantic-ui/semantic.min.js"></script>
-<script src="assets/vuejs/vue.js"></script>
+<script src="/assets/semantic-ui/semantic.min.js"></script>
+<script src="/assets/vuejs/vue.js"></script>
+<script>
+    $('.pointing.dropdown').dropdown({
+        action: 'select'
+    })
+</script>
 {% block scripts %}
-    <script>
-        $('.pointing.dropdown').dropdown({
-            action: 'select'
-        })
-    </script>
+
 {% endblock %}
 </body>
 </html>

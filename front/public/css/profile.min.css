@@ -1,0 +1,19 @@
+.attached.label {
+    font-size: large;
+}
+
+.ui.list .item {
+    margin-top: 1em;
+    color: gray;
+}
+
+.ui.list .item .header {
+    font-size: large;
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+    color: black;
+}
+
+.ui.segment {
+    padding-top: 2em;
+}

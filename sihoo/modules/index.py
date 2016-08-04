@@ -6,13 +6,21 @@
 @email:  helloazl@icloud.com
 """
 
-
-from flask import Blueprint, request, render_template
-
+from flask import Blueprint, render_template
 
 blue_print = Blueprint('sihoo.index', __name__, template_folder='templates')
 
 
-@blue_print.route('/', endpoint='home')
+@blue_print.route('/', endpoint='home', methods=['GET'])
 def home():
     return render_template('index.html')
+
+
+@blue_print.route('/plaza', endpoint='plaza', methods=['GET'])
+def plaza():
+    return render_template('construction.html')
+
+
+@blue_print.route('/follow', endpoint='follow', methods=['GET'])
+def follows():
+    return render_template('construction.html')

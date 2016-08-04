@@ -22,7 +22,7 @@ def setup():
 
 
 def test_page_available():
-    assert '我同意撕乎使用协议' in str(client.get('/register').data, encoding='utf-8')
+    assert '我同意《撕乎使用协议》' in str(client.get('/register').data, encoding='utf-8')
     assert '记住我' in str(client.get('/login').data, encoding='utf-8')
 
 

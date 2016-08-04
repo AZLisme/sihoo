@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <link rel="stylesheet" href="/assets/css/messages.min.css">
+    <div class="filter-box">
+        <div class="ui vertical pointing menu">
+            <a class="active item">未读 </a>
+            <a class="item">已读 </a>
+            <a class="item">全部 </a>
+        </div>
+    </div>
+    <div class="messages-box">
+        <div class="ui card">
+            <div class="content">
+                <div class="header">测试消息</div>
+                <div class="meta">2 days ago</div>
+                <a class="ui red tag label">未读</a>
+                <div class="description">
+                    <p>这是一条测试消息，并不包含任何有意义的内容。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
