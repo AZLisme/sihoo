@@ -9,11 +9,14 @@ Sihoo 包 init 模块
 """
 
 import flask
+import tornado.web
+from tornado.wsgi import WSGIContainer
 
 
-def make_tornado_app():
+def make_tornado_app(fallback_app):
     """创建Tornado App的工厂方法"""
-    app = None
+    fb = WSGIContainer(fallback_app)
+    app = tornado.web.Application([(r".*", tornado.web.FallbackHandler, dict(fallback=fb))])
     return app
 
 

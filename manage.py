@@ -9,11 +9,13 @@
 import pprint
 
 import click
+from tornado.ioloop import IOLoop
 
-from sihoo import make_flask_app
+from sihoo import make_flask_app, make_tornado_app
 from sihoo.models import db
 
 flask_app = make_flask_app()
+tornado_app = make_tornado_app(flask_app)
 
 
 @click.group()
@@ -28,7 +30,8 @@ def cli():
 def start(host, port, debug):
     """Run the server"""
     click.echo("Start the server")
-    flask_app.run(host=host, port=port, debug=debug)
+    tornado_app.listen(port)
+    IOLoop.instance().start()
 
 
 @click.command()
