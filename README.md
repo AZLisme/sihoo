@@ -2,6 +2,8 @@
 
 *V 0.0.6*
 
+中文文档[地址](README.cn.md)
+
 ## What's Sihoo
 
 ## Requirements
@@ -49,9 +51,11 @@ is 0, try turn off the option by:
 
 ## Deployment
 
-Sihoo is under construction currently, if you wanna check out the lastest progress, you can run it with:
+Sihoo is under construction currently, if you wanna check out the latest progress, you can run it with:
 
     python manage.py start
+
+Detailed instruction follow [here](doc/Installation.rst)
 
 Need help? please check:
 

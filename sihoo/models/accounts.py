@@ -88,10 +88,3 @@ class User(db.Model):
     def user_count(cls):
         """获取用户总数"""
         return User.query.count()
-
-# class Role(db.Model):
-#     pass
-
-
-# class EmailVerifyRecord(db.Model):
-#     pass

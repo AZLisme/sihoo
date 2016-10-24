@@ -10,7 +10,6 @@ Flask App 相关默认配置文件
 SECRET_KEY = 'secret'
 
 SQLALCHEMY_DATABASE_URI = "postgresql://sihoo:sihoo@localhost/sihoo"
-# SQLALCHEMY_DATABASE_URI = "postgresql://sihoo_test:sihoo_test@localhost/sihoo_test"
 
 # Redis Settings
 REDIS_HOST = "localhost"
