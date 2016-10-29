@@ -10,7 +10,6 @@
 
 + Python 3.4+
 + [Flask](http://flask.pocoo.org/)
-+ [Tornado](http://www.tornadoweb.org/en/stable/)
 + [PostgreSQL](https://www.postgresql.org/)
 + [Celery](http://www.celeryproject.org/)
 + [Redis](http://redis.io/)
@@ -23,10 +22,6 @@ Frontend libraries:
 Python 2 is **not** supported.
 
 All the python version prior to 3.4 are not tested, they may work fine, or not (more likely). 
-
-Sihoo uses Tornado to handle tens of thousands live connection from browser, but only for this part.
-
-Regular web requests are handled by Flask.
 
 PostgresSQL and Redis is the database backend, they persistent, cache and backup all the data.
 

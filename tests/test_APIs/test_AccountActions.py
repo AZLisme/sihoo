@@ -7,11 +7,11 @@
 """
 from flask import json
 
-from sihoo import make_flask_app
+from sihoo import create_app
 from sihoo.models import db
 from sihoo.models.accounts import User
 
-app = make_flask_app(test=True)
+app = create_app(test=True)
 
 client = app.test_client()
 

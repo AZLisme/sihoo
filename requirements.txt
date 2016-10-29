@@ -1,17 +1,12 @@
 Flask
-Tornado
+pygresql
+redis
 SQLAlchemy
 Nose
-redis
-Celery
 pytz
-psycopg2
-hashlib
+
 
 ## Extentions ##
 Flask-Login
 Flask-SQLAlchemy
-
-## Server ##
-Gunicorn
-supervisor
+Flask-socketio

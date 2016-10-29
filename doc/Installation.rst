@@ -7,7 +7,6 @@ Requirements
 
 + Python 3.4+
 + [Flask](http://flask.pocoo.org/)
-+ [Tornado](http://www.tornadoweb.org/en/stable/)
 + [PostgreSQL](https://www.postgresql.org/)
 + [Celery](http://www.celeryproject.org/)
 + [Redis](http://redis.io/)

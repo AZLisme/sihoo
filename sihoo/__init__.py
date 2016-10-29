@@ -9,18 +9,9 @@ Sihoo 包 init 模块
 """
 
 import flask
-import tornado.web
-from tornado.wsgi import WSGIContainer
 
 
-def make_tornado_app(fallback_app):
-    """创建Tornado App的工厂方法"""
-    fb = WSGIContainer(fallback_app)
-    app = tornado.web.Application([(r".*", tornado.web.FallbackHandler, dict(fallback=fb))])
-    return app
-
-
-def make_flask_app(config=None, test=False):
+def create_app(config=None, test=False):
     """创建Flask App的工厂方法
 
     # 配置文件读取流程
@@ -36,10 +27,10 @@ def make_flask_app(config=None, test=False):
     app = flask.Flask('sihoo', static_folder='../front/public', static_url_path='/assets')
     if test:
         app.testing = True
-        app.config.from_pyfile('settings/flask-setting-test.py')
+        app.config.from_pyfile('setting_test.py')
         app.config.from_envvar('SIHOO_TEST_SETTINGS', silent=True)
     else:
-        app.config.from_pyfile('settings/flask-setting.py')
+        app.config.from_pyfile('setting.py')
         app.config.from_envvar('SIHOO_SETTINGS', silent=True)
     if config:
         app.config.update(config)

@@ -9,13 +9,11 @@
 import pprint
 
 import click
-from tornado.ioloop import IOLoop
 
-from sihoo import make_flask_app, make_tornado_app
+from sihoo import create_app
 from sihoo.models import db
 
-flask_app = make_flask_app()
-tornado_app = make_tornado_app(flask_app)
+app = create_app()
 
 
 @click.group()
@@ -29,10 +27,8 @@ def cli():
 @click.option('--debug', default=True)
 def start(host, port, debug):
     """Run the server"""
-    click.echo("Start the server")
-    tornado_app.listen(port)
-    IOLoop.instance().start()
-
+    click.echo("Starting the server...")
+    app.run(host, port, debug)
 
 @click.command()
 def show_config():
@@ -41,18 +37,14 @@ def show_config():
     print(sep)
     print("Flask Configuration")
     print("")
-    pprint.pprint(flask_app.config)
+    pprint.pprint(app.config)
     print("")
-    sep = "==========================================="
-    print(sep)
-    print("Tornado Configuration")
-    print("Not yet.")
 
 
 @click.command()
 def create_db():
     """Create database"""
-    with flask_app.app_context():
+    with app.app_context():
         db.create_all()
 
 

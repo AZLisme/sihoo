@@ -12,3 +12,4 @@ db = SQLAlchemy()
 
 import sihoo.models.accounts
 import sihoo.models.si
+import sihoo.models.chatroom

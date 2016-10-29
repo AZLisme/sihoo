@@ -11,6 +11,10 @@ class SihooBaseException(Exception):
     pass
 
 
+class SihooProgramException(SihooBaseException):
+    pass
+
+
 class SihooDatabaseException(SihooBaseException):
     pass
 

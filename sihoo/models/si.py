@@ -39,7 +39,6 @@ class Argue(db.Model):
     uid = Column(ForeignKey(User.id))
     sid = Column(ForeignKey(Si.id))
     posted = Column(DateTime)
-    against = Column(ForeignKey('argue.id', ondelete='RESTRICT'))
     side = Column(Boolean)
     content = Column(Text)
 
