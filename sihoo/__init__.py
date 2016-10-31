@@ -34,10 +34,11 @@ def create_app(config=None, test=False):
         app.config.from_envvar('SIHOO_SETTINGS', silent=True)
     if config:
         app.config.update(config)
-    from sihoo.models import db
+    from sihoo.models import db, configure_redis
     db.init_app(app)
-    from sihoo import modules
-    modules.init_app(app)
+    configure_redis(app)
     from sihoo import ext
     ext.configure(app)
+    from sihoo import modules
+    modules.init_app(app)
     return app

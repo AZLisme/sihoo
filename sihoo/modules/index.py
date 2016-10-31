@@ -6,7 +6,9 @@
 @email:  helloazl@icloud.com
 """
 
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
+
+from sihoo.models.chatroom import ls_chatroom
 
 blue_print = Blueprint('sihoo.index', __name__, template_folder='templates')
 
@@ -18,9 +20,10 @@ def home():
 
 @blue_print.route('/plaza', endpoint='plaza', methods=['GET'])
 def plaza():
-    return render_template('construction.html')
+    return render_template('roomlist.html', roomlist=ls_chatroom())
 
 
 @blue_print.route('/follow', endpoint='follow', methods=['GET'])
 def follows():
     return render_template('construction.html')
+

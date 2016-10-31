@@ -10,6 +10,7 @@ from flask import Flask
 
 def init_app(app: Flask):
     # 依次注册蓝图
-    from sihoo.modules import accounts, index
+    from sihoo.modules import accounts, index, chatroom
     app.register_blueprint(accounts.blue_print)
     app.register_blueprint(index.blue_print)
+    app.register_blueprint(chatroom.blue_print)

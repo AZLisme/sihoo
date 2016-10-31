@@ -3,3 +3,7 @@ div.login-form {
     margin: auto;
     margin-top: 64px;
 }
+
+[v-cloak] {
+    display: None;
+}

@@ -28,7 +28,9 @@ def cli():
 def start(host, port, debug):
     """Run the server"""
     click.echo("Starting the server...")
-    app.run(host, port, debug)
+    from sihoo.ext.socketio import socketio
+    socketio.run(app, host, port, debug=debug)
+
 
 @click.command()
 def show_config():

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="container">
+        <h1>添加新聊天室...</h1>
+        <form action="/chat/add" method="post">
+            <input type="text" name="name" placeholder="聊天室名称...">
+            <input type="submit">
+        </form>
+    </div>
+{% endblock %}

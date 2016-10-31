@@ -2,7 +2,7 @@
 
 {% block main %}
     <link rel="stylesheet" href="assets/css/login.min.css">
-    <div class="login-form">
+    <div class="login-form" v-cloak>
         {% raw %}
         <div v-bind:class="['ui', ufe?'':'hidden','error', 'message']">
             <i class="close icon"></i>

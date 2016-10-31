@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <style>
+    </style>
+    <div class="container">
+        <h1>房间列表</h1>
+        <div><a href="/chat/add">新建</a></div>
+        <ul>
+            {% for room in roomlist %}
+                <li><a href="/chat?room={{ room }}">{{ room }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
